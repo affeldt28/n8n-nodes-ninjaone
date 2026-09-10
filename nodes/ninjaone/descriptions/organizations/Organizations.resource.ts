@@ -3,8 +3,8 @@ import * as getAll from './getAll.operation';
 
 export const description: INodeProperties[] = [
 	{
-		name: 'operation',
 		displayName: 'Operation',
+		name: 'operation',
 		type: 'options',
 		default: 'getAll',
 		noDataExpression: true,
