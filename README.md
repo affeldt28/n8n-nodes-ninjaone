@@ -21,7 +21,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 The node currently supports the following operation:
 
-### Organizations
+### Organization
 
 
 | Operation          | API                                                                                                   | Implemented |
@@ -29,7 +29,7 @@ The node currently supports the following operation:
 | List organizations | [GET /v2/organizations](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getOrganizations) | ✅           |
 
 
-### Devices
+### Device
 
 | Operation    | API                                                                                       | Implemented |
 | ------------ | ----------------------------------------------------------------------------------------- | ----------- |

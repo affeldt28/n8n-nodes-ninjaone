@@ -11,7 +11,7 @@ export const description: INodeProperties[] = [
 		noDataExpression: true,
 		displayOptions: {
 			show: {
-				resource: ['groups'],
+				resource: ['group'],
 			},
 		},
 		options: [

@@ -1,3 +1,3 @@
-export * as devices from './devices/Devices.resource';
-export * as groups from './group/Groups.resource';
-export * as organizations from './organizations/Organizations.resource';
+export * as device from './device/Device.resource';
+export * as group from './group/Group.resource';
+export * as organization from './organization/Organization.resource';

@@ -1,11 +1,11 @@
 import { type INodeType, type INodeTypeDescription, NodeConnectionTypes } from 'n8n-workflow';
-import { devices, groups, organizations } from './descriptions';
+import { device, group, organization } from './descriptions';
 
 export class Ninjaone implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'NinjaOne',
 		name: 'ninjaone',
-		icon: { light: 'file:../../icons/ninjaone.svg', dark: 'file:../../icons/ninjaone.svg' },
+		icon: 'file:../../icons/ninjaone.svg',
 		group: ['input'],
 		subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
 		version: 1,
@@ -34,22 +34,22 @@ export class Ninjaone implements INodeType {
 				default: 'organizations',
 				options: [
 					{
-						name: 'Organizations',
-						value: 'organizations',
+						name: 'Organization',
+						value: 'organization',
 					},
 					{
-						name: 'Devices',
-						value: 'devices',
+						name: 'Device',
+						value: 'device',
 					},
 					{
-						name: 'Groups',
-						value: 'groups',
+						name: 'Group',
+						value: 'group',
 					},
 				],
 			},
-			...organizations.description,
-			...devices.description,
-			...groups.description,
+			...organization.description,
+			...device.description,
+			...group.description,
 		],
 	};
 	methods = {};

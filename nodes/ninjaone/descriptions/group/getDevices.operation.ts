@@ -23,7 +23,7 @@ const properties: INodeProperties[] = [
 
 const displayOptions = {
 	show: {
-		resource: ['groups'],
+		resource: ['group'],
 		operation: ['getDevices'],
 	},
 };

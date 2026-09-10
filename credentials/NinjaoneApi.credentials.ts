@@ -13,7 +13,7 @@ export class NinjaoneApi implements ICredentialType {
 
 	displayName = 'NinjaOne API';
 
-	icon: Icon = { light: 'file:../icons/ninjaone.svg', dark: 'file:../icons/ninjaone.svg' };
+	icon: Icon = 'file:../icons/ninjaone.svg';
 
 	documentationUrl = 'https://www.ninjaone.com/de/services/ninjaone-api/';
 
@@ -136,6 +136,7 @@ export class NinjaoneApi implements ICredentialType {
 			displayName: 'Refresh Token',
 			name: 'refresh_token',
 			type: 'string',
+			typeOptions: { password: false },
 			default: '',
 			displayOptions: {
 				show: {
@@ -149,6 +150,7 @@ export class NinjaoneApi implements ICredentialType {
 			type: 'hidden',
 			typeOptions: {
 				expirable: true,
+				password: false,
 			},
 			default: '',
 		},

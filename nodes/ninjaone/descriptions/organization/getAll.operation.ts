@@ -30,7 +30,7 @@ const properties: INodeProperties[] = [
 
 const displayOptions = {
 	show: {
-		resource: ['organizations'],
+		resource: ['organization'],
 		operation: ['getAll'],
 	},
 };

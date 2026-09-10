@@ -10,13 +10,13 @@ export const description: INodeProperties[] = [
 		noDataExpression: true,
 		displayOptions: {
 			show: {
-				resource: ['organizations'],
+				resource: ['organization'],
 			},
 		},
 		options: [
 			{
 				name: 'Get Many',
-				description: 'Get a list of all organization names',
+				description: 'Get a list of many organization names',
 				value: 'getAll',
 				routing: {
 					request: {
