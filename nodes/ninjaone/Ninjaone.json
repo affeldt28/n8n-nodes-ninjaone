@@ -1,0 +1,25 @@
+{
+	"node": "@affeldt28/n8n-nodes-ninjaone.ninjaone",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"Finance & Accounting",
+		"Productivity",
+		"Miscellaneous",
+		"Development",
+		"Analytics",
+		"Utility"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://app.ninjarmm.com/apidocs/?links.active=authorization"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://app.ninjarmm.com/apidocs/?links.active=core/"
+			}
+		]
+	}
+}

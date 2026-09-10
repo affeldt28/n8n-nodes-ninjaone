@@ -1,0 +1,58 @@
+{
+	"name": "@affeldt28/n8n-nodes-ninjaone",
+	"version": "1.0.0",
+	"description": "n8n node for NinjaOne",
+	"license": "MIT",
+	"homepage": "https://github.com/affeldt28/n8n-nodes-ninjaone",
+	"keywords": [
+		"n8n-community-node-package",
+		"NinjaRMM",
+		"NinjaOne",
+		"Device Management",
+		"MDM"
+	],
+	"author": {
+		"name": "affeldt28",
+		"email": "code@affeldt.dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/affeldt28/n8n-nodes-ninjaone.git"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"format": "biome format --write ",
+		"lint": "biome check",
+		"lint:fix": "biome check --write",
+		"n8n-lint": "n8n-node lint",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/NinjaoneApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/ninjaone/Ninjaone.node.js"
+		]
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.1",
+		"@n8n/node-cli": "*",
+		"release-it": "20.2.1",
+		"typescript": "6.0.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
