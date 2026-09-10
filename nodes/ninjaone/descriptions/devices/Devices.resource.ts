@@ -21,7 +21,7 @@ export const description: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'GET',
-						url: '/devices',
+						url: '/v2/devices',
 					},
 				},
 				action: 'Get many devices',

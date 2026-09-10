@@ -23,7 +23,7 @@ export class Ninjaone implements INodeType {
 			},
 		],
 		requestDefaults: {
-			baseURL: '=https://{{ $credentials.region }}.ninjarmm.com/v2',
+			baseURL: '=https://{{ $credentials.region }}.ninjarmm.com',
 		},
 		properties: [
 			{
