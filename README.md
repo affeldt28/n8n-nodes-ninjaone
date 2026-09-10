@@ -35,6 +35,13 @@ The node currently supports the following operation:
 | ------------ | ----------------------------------------------------------------------------------------- | ----------- |
 | List devices | [GET /v2/devices](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getDevices) | ✅           |
 
+### Group
+
+| Operation   | API                                                                                                            | Implemented |
+| ----------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
+| List groups | [GET /v2/groups](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getGroups)                        | ✅           |
+| Get Devices | [GET /v2/group/{id}/device-ids](https://app.ninjarmm.com/apidocs/?links.active=core#/groups/getGroupDeviceIds) | ✅           |
+
 
 
 ## Credentials
