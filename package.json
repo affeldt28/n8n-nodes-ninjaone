@@ -1,6 +1,6 @@
 {
 	"name": "@affeldt28/n8n-nodes-ninjaone",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "n8n node for NinjaOne",
 	"license": "MIT",
 	"homepage": "https://github.com/affeldt28/n8n-nodes-ninjaone",
@@ -47,10 +47,10 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.1",
+		"@biomejs/biome": "2.5.13",
 		"@n8n/node-cli": "*",
-		"release-it": "20.2.1",
-		"typescript": "6.0.3"
+		"release-it": "21.0.2",
+		"typescript": "7.0.2"
 	},
 	"peerDependencies": {
 		"n8n-workflow": "*"
