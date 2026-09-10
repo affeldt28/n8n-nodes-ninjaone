@@ -1,5 +1,5 @@
 import { type INodeType, type INodeTypeDescription, NodeConnectionTypes } from 'n8n-workflow';
-import { organizations } from './descriptions';
+import { devices, organizations } from './descriptions';
 
 export class Ninjaone implements INodeType {
 	description: INodeTypeDescription = {
@@ -37,9 +37,14 @@ export class Ninjaone implements INodeType {
 						name: 'Organizations',
 						value: 'organizations',
 					},
+					{
+						name: 'Devices',
+						value: 'devices',
+					},
 				],
 			},
 			...organizations.description,
+			...devices.description,
 		],
 	};
 	methods = {};

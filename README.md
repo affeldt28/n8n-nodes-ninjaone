@@ -29,6 +29,14 @@ The node currently supports the following operation:
 | List organizations | [GET /v2/organizations](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getOrganizations) | ✅           |
 
 
+### Devices
+
+| Operation    | API                                                                                       | Implemented |
+| ------------ | ----------------------------------------------------------------------------------------- | ----------- |
+| List devices | [GET /v2/devices](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getDevices) | ✅           |
+
+
+
 ## Credentials
 
 Create a **NinjaOne API** credential in n8n using the client credentials from your NinjaOne portal.
