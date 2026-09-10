@@ -17,7 +17,7 @@ export const description: INodeProperties[] = [
 		options: [
 			{
 				name: 'Get Many',
-				description: 'Get a list of all groups',
+				description: 'Get a list of many groups',
 				value: 'getAll',
 				routing: {
 					request: {

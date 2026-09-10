@@ -31,7 +31,7 @@ export class Ninjaone implements INodeType {
 				name: 'resource',
 				type: 'options',
 				noDataExpression: true,
-				default: 'organizations',
+				default: 'organization',
 				options: [
 					{
 						name: 'Organization',

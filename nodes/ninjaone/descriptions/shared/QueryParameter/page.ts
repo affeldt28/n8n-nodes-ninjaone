@@ -2,7 +2,7 @@ import { type INodeProperties } from 'n8n-workflow';
 
 export const pageQueryParameters: INodeProperties[] = [
 	{
-		displayName: 'Page size',
+		displayName: 'Page Size',
 		name: 'pageSize',
 		description: 'Limit number of items to return',
 		type: 'number',

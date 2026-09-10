@@ -136,7 +136,7 @@ export class NinjaoneApi implements ICredentialType {
 			displayName: 'Refresh Token',
 			name: 'refresh_token',
 			type: 'string',
-			typeOptions: { password: false },
+			typeOptions: { password: true },
 			default: '',
 			displayOptions: {
 				show: {
@@ -150,7 +150,7 @@ export class NinjaoneApi implements ICredentialType {
 			type: 'hidden',
 			typeOptions: {
 				expirable: true,
-				password: false,
+				password: true,
 			},
 			default: '',
 		},

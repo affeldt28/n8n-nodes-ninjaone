@@ -16,7 +16,7 @@ export const description: INodeProperties[] = [
 		options: [
 			{
 				name: 'Get Many',
-				description: 'Get a list of all device',
+				description: 'Get a list of many devices',
 				value: 'getAll',
 				routing: {
 					request: {

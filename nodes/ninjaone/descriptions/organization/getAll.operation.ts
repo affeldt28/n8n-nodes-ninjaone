@@ -11,7 +11,7 @@ const properties: INodeProperties[] = [
 		options: [
 			...pageQueryParameters,
 			{
-				displayName: 'Organization filter',
+				displayName: 'Organization Filter',
 				name: 'of',
 				description: 'Filter organizations by a specific criteria',
 				type: 'string',

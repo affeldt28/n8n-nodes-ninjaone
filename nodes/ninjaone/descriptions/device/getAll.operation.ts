@@ -11,7 +11,7 @@ const properties: INodeProperties[] = [
 		options: [
 			...pageQueryParameters,
 			{
-				displayName: 'Device filter',
+				displayName: 'Device Filter',
 				name: 'df',
 				description: 'Filter devices by a specific criteria',
 				type: 'string',
