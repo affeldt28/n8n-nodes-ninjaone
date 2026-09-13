@@ -6,12 +6,12 @@
       "name": "@affeldt28/n8n-nodes-ninjaone",
       "devDependencies": {
         "@biomejs/biome": "2.5.13",
-        "@n8n/node-cli": "*",
+        "@n8n/node-cli": "0.47.2",
         "release-it": "21.0.2",
         "typescript": "7.0.2",
       },
       "peerDependencies": {
-        "n8n-workflow": "*",
+        "n8n-workflow": "2.38.1",
       },
     },
   },
