@@ -13,7 +13,7 @@ export class NinjaoneApi implements ICredentialType {
 
 	displayName = 'NinjaOne API';
 
-	icon: Icon = 'file:../icons/ninjaone.svg';
+	icon: Icon = { light: 'file:../icons/ninjaone.svg', dark: 'file:../icons/ninjaone.dark.svg' };
 
 	documentationUrl = 'https://www.ninjaone.com/de/services/ninjaone-api/';
 

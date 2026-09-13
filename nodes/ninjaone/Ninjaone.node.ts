@@ -5,7 +5,10 @@ export class Ninjaone implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'NinjaOne',
 		name: 'ninjaone',
-		icon: 'file:../../icons/ninjaone.svg',
+		icon: {
+			light: 'file:../../icons/ninjaone.svg',
+			dark: 'file:../../icons/ninjaone.dark.svg',
+		},
 		group: ['input'],
 		subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
 		version: 1,
