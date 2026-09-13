@@ -19,15 +19,13 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-The node currently supports the following operation:
+This node currently supports the following NinjaOne resources and operations:
 
 ### Organization
-
 
 | Operation          | API                                                                                                   | Implemented |
 | ------------------ | ----------------------------------------------------------------------------------------------------- | ----------- |
 | List organizations | [GET /v2/organizations](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getOrganizations) | ✅           |
-
 
 ### Device
 
@@ -40,9 +38,7 @@ The node currently supports the following operation:
 | Operation   | API                                                                                                            | Implemented |
 | ----------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
 | List groups | [GET /v2/groups](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getGroups)                        | ✅           |
-| Get Devices | [GET /v2/group/{id}/device-ids](https://app.ninjarmm.com/apidocs/?links.active=core#/groups/getGroupDeviceIds) | ✅           |
-
-
+| Get devices | [GET /v2/group/{id}/device-ids](https://app.ninjarmm.com/apidocs/?links.active=core#/groups/getGroupDeviceIds) | ✅           |
 
 ## Credentials
 
