@@ -1,4 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
+import * as get from './get.operation';
 import * as getAll from './getAll.operation';
 
 export const description: INodeProperties[] = [
@@ -26,7 +27,20 @@ export const description: INodeProperties[] = [
 				},
 				action: 'Get many devices',
 			},
+			{
+				name: 'Get',
+				description: 'Get a single device',
+				value: 'get',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '/v2/devices/{{ $parameter.deviceId }}',
+					},
+				},
+				action: 'Get a device',
+			},
 		],
 	},
 	...getAll.description,
+	...get.description,
 ];

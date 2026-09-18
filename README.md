@@ -29,9 +29,10 @@ This node currently supports the following NinjaOne resources and operations:
 
 ### Device
 
-| Operation    | API                                                                                       | Implemented |
-| ------------ | ----------------------------------------------------------------------------------------- | ----------- |
-| List devices | [GET /v2/devices](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getDevices) | ✅           |
+| Operation    | API                                                                                            | Implemented |
+| ------------ | ---------------------------------------------------------------------------------------------- | ----------- |
+| List devices | [GET /v2/devices](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getDevices)      | ✅           |
+| Get device   | [GET /v2/devices/{id}](https://app.ninjarmm.com/apidocs/?links.active=core#/devices/getDevice) | ✅           |
 
 ### Group
 
