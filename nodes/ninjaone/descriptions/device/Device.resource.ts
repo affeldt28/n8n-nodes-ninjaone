@@ -34,7 +34,7 @@ export const description: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'GET',
-						url: '/v2/devices/{{ $parameter.deviceId }}',
+						url: '/v2/device/{{ $parameter.deviceId }}',
 					},
 				},
 				action: 'Get a device',
