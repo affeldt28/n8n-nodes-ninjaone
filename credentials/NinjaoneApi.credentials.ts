@@ -15,7 +15,7 @@ export class NinjaoneApi implements ICredentialType {
 
 	icon: Icon = { light: 'file:../icons/ninjaone.svg', dark: 'file:../icons/ninjaone.dark.svg' };
 
-	documentationUrl = 'https://www.ninjaone.com/de/services/ninjaone-api/';
+	documentationUrl = 'https://app.ninjarmm.com/apidocs/';
 
 	properties: INodeProperties[] = [
 		{
@@ -36,7 +36,7 @@ export class NinjaoneApi implements ICredentialType {
 					value: 'us2',
 				},
 				{
-					name: 'Europa / Middle East (eu)',
+					name: 'Europe / Middle East (eu)',
 					value: 'eu',
 				},
 				{
