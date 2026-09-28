@@ -21,7 +21,7 @@ export class Ninjaone implements INodeType {
 		outputs: [NodeConnectionTypes.Main],
 		credentials: [
 			{
-				name: 'ninjaoneApi',
+				name: 'ninjaOneOAuth2Api',
 				required: true,
 			},
 		],

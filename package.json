@@ -1,6 +1,6 @@
 {
 	"name": "@affeldt28/n8n-nodes-ninjaone",
-	"version": "1.1.2",
+	"version": "1.2.0",
 	"description": "n8n node for NinjaOne",
 	"license": "MIT",
 	"homepage": "https://github.com/affeldt28/n8n-nodes-ninjaone",
@@ -24,6 +24,7 @@
 		"build:watch": "tsc --watch",
 		"dev": "n8n-node dev",
 		"format": "biome format --write ",
+		"typecheck": "tsc --noEmit",
 		"lint": "biome check",
 		"lint:fix": "biome check --write",
 		"n8n-lint": "n8n-node lint",
@@ -37,7 +38,7 @@
 		"n8nNodesApiVersion": 1,
 		"strict": true,
 		"credentials": [
-			"dist/credentials/NinjaoneApi.credentials.js"
+			"dist/credentials/NinjaOneOAuth2Api.credentials.js"
 		],
 		"nodes": [
 			"dist/nodes/ninjaone/Ninjaone.node.js"
