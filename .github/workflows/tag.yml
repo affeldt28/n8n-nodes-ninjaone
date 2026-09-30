@@ -1,24 +1,25 @@
 name: 🏷️ Tag
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - 'package.json'
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
-
-permissions:
-  contents: write
+  workflow_call:
+    outputs:
+      created:
+        description: Whether a new tag was created
+        value: ${{ jobs.tag.outputs.created }}
+      version:
+        value: ${{ jobs.tag.outputs.version }}
 
 jobs:
   tag:
     name: 🏷️ Tag
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    outputs:
+      created: ${{ steps.check_tag.outputs.exists == 'false' }}
+      version: ${{ steps.version.outputs.version }}
 
     steps:
       - name: ⬇️ Checkout repo
