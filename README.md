@@ -2,6 +2,8 @@
 
 This is an n8n community node. It lets you use NinjaOne in your n8n workflows.
 
+This implementation is based off [NinjaOne Public API 2.0 documentation](https://app.ninjarmm.com/apidocs/?links.active=core), specification version **`2.0.9-draft`**, in **OpenAPI 3 (OAS3)** format.
+
 NinjaOne is a cloud-based IT management platform that provides remote monitoring and management (RMM) capabilities for IT professionals. It allows users to monitor, manage, and support their IT infrastructure and endpoints remotely.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
@@ -23,9 +25,33 @@ This node currently supports the following NinjaOne resources and operations:
 
 ### Organization
 
-| Operation          | API                                                                                                   | Implemented |
-| ------------------ | ----------------------------------------------------------------------------------------------------- | ----------- |
-| List organizations | [GET /v2/organizations](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getOrganizations) | ✅           |
+All endpoints in the core Organization section are supported, together with organization and location management endpoints. Organization Documents and Organization Checklists are separate resources and are not included.
+
+| Operation                     | API                                                                                                                                                                    | Implemented |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| Create                        | [POST /v2/organizations](https://app.ninjarmm.com/apidocs/?links.active=core#/management/createOrganization)                                                           | ✅           |
+| Create Location               | [POST /v2/organization/{id}/locations](https://app.ninjarmm.com/apidocs/?links.active=core#/management/createLocationForOrganization)                                  | ✅           |
+| Generate Installer            | [POST /v2/organization/generate-installer](https://app.ninjarmm.com/apidocs/?links.active=core#/management/getInstaller)                                               | ✅           |
+| Get                           | [GET /v2/organization/{id}](https://app.ninjarmm.com/apidocs/?links.active=core#/organization/getOrganization)                                                         | ✅           |
+| Get Custom Fields             | [GET /v2/organization/{id}/custom-fields](https://app.ninjarmm.com/apidocs/?links.active=core#/organization/getNodeCustomFields_1)                                     | ✅           |
+| Get Devices                   | [GET /v2/organization/{id}/devices](https://app.ninjarmm.com/apidocs/?links.active=core#/organization/getOrganizationDevices)                                          | ✅           |
+| Get End Users                 | [GET /v2/organization/{id}/end-users](https://app.ninjarmm.com/apidocs/?links.active=core#/organization/getEndUsers)                                                   | ✅           |
+| Get Location Backup Usage     | [GET /v2/organization/{id}/locations/{locationId}/backup/usage](https://app.ninjarmm.com/apidocs/?links.active=core#/organization/getLocationUsage)                    | ✅           |
+| Get Location Custom Fields    | [GET /v2/organization/{id}/location/{locationId}/custom-fields](https://app.ninjarmm.com/apidocs/?links.active=core#/Location/getNodeCustomFields_2)                   | ✅           |
+| Get Location Installer        | [GET /v2/organization/{id}/location/{location_id}/installer/{installer_type}](https://app.ninjarmm.com/apidocs/?links.active=core#/management/getInstallerForLocation) | ✅           |
+| Get Locations                 | [GET /v2/organization/{id}/locations](https://app.ninjarmm.com/apidocs/?links.active=core#/organization/getOrganizationLocations)                                      | ✅           |
+| Get Locations Backup Usage    | [GET /v2/organization/{id}/locations/backup/usage](https://app.ninjarmm.com/apidocs/?links.active=core#/organization/getOrganizationLocationUsage)                     | ✅           |
+| Get Many                      | [GET /v2/organizations](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getOrganizations)                                                                  | ✅           |
+| Get Many Detailed             | [GET /v2/organizations-detailed](https://app.ninjarmm.com/apidocs/?links.active=core#/system/getOrganizationsDetailed)                                                 | ✅           |
+| Update                        | [PATCH /v2/organization/{id}](https://app.ninjarmm.com/apidocs/?links.active=core#/management/updateOrganization)                                                      | ✅           |
+| Update Custom Fields          | [PATCH /v2/organization/{id}/custom-fields](https://app.ninjarmm.com/apidocs/?links.active=core#/organization/updateNodeAttributeValues_1)                             | ✅           |
+| Update Location               | [PATCH /v2/organization/{id}/locations/{locationId}](https://app.ninjarmm.com/apidocs/?links.active=core#/management/updateLocation)                                   | ✅           |
+| Update Location Custom Fields | [PATCH /v2/organization/{id}/location/{locationId}/custom-fields](https://app.ninjarmm.com/apidocs/?links.active=core#/Location/updateNodeAttributeValues_2)           | ✅           |
+| Update Policies               | [PUT /v2/organization/{id}/policies](https://app.ninjarmm.com/apidocs/?links.active=core#/management/updateNodeRolePolicyAssignmentForOrganization)                    | ✅           |
+
+List operations expose the API’s page size and after cursor where supported; each execution returns one page. Use the last returned ID as **After** to retrieve the next page. Create and update operations support all documented writable fields. Structured fields (locations, policy mappings, user data, installer content, and custom field values) accept JSON, including object/array expressions. Optional update fields are sent only when added, so omitted fields remain untouched. Policy updates accept an array such as `[{"nodeRoleId": 1, "policyId": 2}]`; custom field updates accept an object such as `{"customFieldNameText": "Sample Text"}`.
+
+Write operations require the appropriate NinjaOne API permissions and management scope. Installer operations return the API’s installer metadata/URL.
 
 ### Device
 

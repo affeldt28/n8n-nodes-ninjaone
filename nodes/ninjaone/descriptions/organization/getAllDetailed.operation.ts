@@ -5,15 +5,15 @@ import {
 } from 'n8n-workflow';
 import { pageQueryParameters } from '../shared/QueryParameter';
 
-export const getAllOption: INodePropertyOptions = {
-	name: 'Get Many',
-	value: 'getAll',
-	description: 'Get many organizations',
-	action: 'Get many organizations',
+export const getAllDetailedOption: INodePropertyOptions = {
+	name: 'Get Many Detailed',
+	value: 'getAllDetailed',
+	description: 'Get many organizations with details',
+	action: 'Get many organizations with details',
 	routing: {
 		request: {
 			method: 'GET',
-			url: '/v2/organizations',
+			url: '/v2/organizations-detailed',
 		},
 	},
 };
@@ -48,8 +48,8 @@ const properties: INodeProperties[] = [
 const displayOptions = {
 	show: {
 		resource: ['organization'],
-		operation: ['getAll'],
+		operation: ['getAllDetailed'],
 	},
 };
 
-export const getAllDescription = updateDisplayOptions(displayOptions, properties);
+export const getAllDetailedDescription = updateDisplayOptions(displayOptions, properties);
