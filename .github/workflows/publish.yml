@@ -1,4 +1,4 @@
-name: 📋 Publish
+name: 🚀 Publish
 
 on:
   workflow_call:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   publish:
-    name: 📋 Publish to npm
+    name: 🌐 Publish to npm
     runs-on: ubuntu-latest
 
     permissions:
@@ -24,7 +24,7 @@ jobs:
         with:
           ref: ${{ inputs.version }}
 
-      - name: ⚙️ Set up Node.js
+      - name: 🟢 Set up Node.js
         uses: actions/setup-node@v7.0.0
         with:
           node-version: 'lts/*'
@@ -38,7 +38,7 @@ jobs:
       - name: 📦 Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: 📦 Release on npm
+      - name: 🧰 Release on npm
         run: |
           [ -n "$NPM_TOKEN" ] && npm config set access public && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
           npm run release

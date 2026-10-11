@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   build:
-    name: ✅ Build
+    name: 🛠️ Build
     runs-on: ubuntu-latest
 
     permissions:
@@ -31,7 +31,7 @@ jobs:
       - name: 🔎 Run lint
         run: bun run lint
 
-      - name: 🔎 Run n8n community node lint
+      - name: 🪄 Run n8n community node lint
         run: bun run n8n-lint
 
       - name: 🏗️ Run build

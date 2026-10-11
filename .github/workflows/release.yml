@@ -10,11 +10,11 @@ on:
 
 jobs:
   validate_ref:
-    name: 🔎 Validate release ref
+    name: 🛡️ Validate release ref
     runs-on: ubuntu-latest
     permissions: {}
     steps:
-      - name: Require a tag for manual releases
+      - name: 🚧 Require a tag for manual releases
         if: github.event_name == 'workflow_dispatch'
         env:
           REF_TYPE: ${{ github.ref_type }}
@@ -24,7 +24,7 @@ jobs:
             exit 1
           fi
 
-      - name: Validate tag version format
+      - name: 🕵️ Validate tag version format
         env:
           RELEASE_TAG: ${{ inputs.version || github.ref_name }}
         run: |
@@ -65,7 +65,7 @@ jobs:
           excludeTypes: build,docs,other,style
           writeToFile: false
 
-      - name: 📦 Create Release
+      - name: ✨ Create Release
         uses: ncipollo/release-action@v1.21.0
         with:
           allowUpdates: true
@@ -75,7 +75,6 @@ jobs:
           body: ${{ steps.changelog.outputs.changes }}
 
   publish_manual:
-    name: 📋 Retry npm publish from tag
     if: github.event_name == 'workflow_dispatch'
     needs:
       - release
