@@ -1,32 +1,63 @@
-import { type INodeProperties } from 'n8n-workflow';
+import {
+	type DeclarativeRestApiSettings,
+	type IExecutePaginationFunctions,
+	type INodeExecutionData,
+	type INodeProperties,
+} from 'n8n-workflow';
+
+export async function paginateById(
+	this: IExecutePaginationFunctions,
+	requestOptions: DeclarativeRestApiSettings.ResultOptions,
+): Promise<INodeExecutionData[]> {
+	const returnAll = this.getNodeParameter('returnAll', false) as boolean;
+	const limit = returnAll ? Infinity : (this.getNodeParameter('limit', 50) as number);
+	const items: INodeExecutionData[] = [];
+	let after: string | number | undefined;
+
+	while (items.length < limit) {
+		requestOptions.options.qs = {
+			...requestOptions.options.qs,
+			pageSize: Math.min(100, limit - items.length),
+			...(after === undefined ? {} : { after }),
+		};
+		const page = await this.makeRoutingRequest(requestOptions);
+		if (page.length === 0) break;
+
+		items.push(...page.slice(0, limit - items.length));
+		if (items.length >= limit) break;
+
+		const nextAfter = page[page.length - 1].json.id;
+		if (
+			(typeof nextAfter !== 'number' && typeof nextAfter !== 'string') ||
+			String(nextAfter) === String(after)
+		) {
+			throw new Error('Cannot paginate NinjaOne results: missing or repeated last item ID');
+		}
+		after = nextAfter;
+	}
+
+	return items;
+}
 
 export const pageQueryParameters: INodeProperties[] = [
 	{
-		displayName: 'Page Size',
-		name: 'pageSize',
-		description: 'Limit number of items to return',
-		type: 'number',
-		default: 100,
-		placeholder: 'e.g. 100',
+		displayName: 'Return All',
+		name: 'returnAll',
+		type: 'boolean',
+		default: false,
+		description: 'Whether to return all results or only up to a given limit',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
-			},
+			send: { paginate: true },
+			operations: { pagination: paginateById },
 		},
 	},
 	{
-		displayName: 'After',
-		name: 'after',
-		description: 'Last item ID from the previous page, used for pagination',
+		displayName: 'Limit',
+		name: 'limit',
 		type: 'number',
-		default: 0,
-		placeholder: 'e.g. 100',
-		routing: {
-			send: {
-				type: 'query',
-				property: 'after',
-			},
-		},
+		default: 50,
+		typeOptions: { minValue: 1, numberPrecision: 0 },
+		description: 'Max number of results to return',
+		displayOptions: { show: { returnAll: [false] } },
 	},
 ];

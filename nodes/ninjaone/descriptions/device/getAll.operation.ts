@@ -2,6 +2,7 @@ import { type INodeProperties, updateDisplayOptions } from 'n8n-workflow';
 import { pageQueryParameters } from '../shared/QueryParameter';
 
 const properties: INodeProperties[] = [
+	...pageQueryParameters,
 	{
 		displayName: 'Additional Fields',
 		name: 'additionalFields',
@@ -9,7 +10,6 @@ const properties: INodeProperties[] = [
 		default: {},
 		placeholder: 'Add Field',
 		options: [
-			...pageQueryParameters,
 			{
 				displayName: 'Device Filter',
 				name: 'df',

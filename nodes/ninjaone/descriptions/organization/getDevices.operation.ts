@@ -3,6 +3,7 @@ import {
 	type INodePropertyOptions,
 	updateDisplayOptions,
 } from 'n8n-workflow';
+import { pageQueryParameters } from '../shared/QueryParameter';
 
 export const getDevicesOption: INodePropertyOptions = {
 	name: 'Get Devices',
@@ -36,41 +37,7 @@ const properties: INodeProperties[] = [
 			},
 		],
 	},
-	{
-		displayName: 'Options',
-		name: 'options',
-		type: 'collection',
-		default: {},
-		placeholder: 'Add Option',
-		options: [
-			{
-				displayName: 'PageSize',
-				name: 'pageSize',
-				type: 'number',
-				default: 0,
-				description: 'Limit number of devices to return',
-				routing: {
-					send: {
-						type: 'query',
-						property: 'pageSize',
-					},
-				},
-			},
-			{
-				displayName: 'After',
-				name: 'after',
-				type: 'number',
-				default: 0,
-				description: 'Last Node ID from previous page',
-				routing: {
-					send: {
-						type: 'query',
-						property: 'after',
-					},
-				},
-			},
-		],
-	},
+	...pageQueryParameters,
 ];
 
 const displayOptions = {

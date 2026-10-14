@@ -19,6 +19,7 @@ export const getAllOption: INodePropertyOptions = {
 };
 
 const properties: INodeProperties[] = [
+	...pageQueryParameters,
 	{
 		displayName: 'Additional Fields',
 		name: 'additionalFields',
@@ -26,7 +27,6 @@ const properties: INodeProperties[] = [
 		default: {},
 		placeholder: 'Add Field',
 		options: [
-			...pageQueryParameters,
 			{
 				displayName: 'Organization Filter',
 				name: 'of',
