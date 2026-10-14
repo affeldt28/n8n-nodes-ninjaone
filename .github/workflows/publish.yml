@@ -40,7 +40,4 @@ jobs:
 
       - name: 🧰 Release on npm
         run: |
-          [ -n "$NPM_TOKEN" ] && npm config set access public && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
           npm run release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
