@@ -1,4 +1,24 @@
-import { type INodeProperties, updateDisplayOptions } from 'n8n-workflow';
+import { type INodeProperties, INodePropertyOptions, updateDisplayOptions } from 'n8n-workflow';
+
+export const getGroupDevicesOption: INodePropertyOptions = {
+	name: 'Get Devices',
+	description: 'Returns list of device identifiers that match group criteria',
+	value: 'getDevices',
+	routing: {
+		request: {
+			method: 'GET',
+			url: '=/v2/group/{{ $parameter.groupId }}/device-ids',
+		},
+		output: {
+			postReceive: [
+				async function (_items, response) {
+					return (response.body as number[]).map((id) => ({ json: { id } }));
+				},
+			],
+		},
+	},
+	action: 'Get devices in group',
+};
 
 const properties: INodeProperties[] = [
 	{
@@ -28,4 +48,4 @@ const displayOptions = {
 	},
 };
 
-export const description = updateDisplayOptions(displayOptions, properties);
+export const getGroupDevicesDescription = updateDisplayOptions(displayOptions, properties);

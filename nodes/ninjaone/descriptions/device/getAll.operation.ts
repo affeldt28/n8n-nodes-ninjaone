@@ -1,5 +1,18 @@
-import { type INodeProperties, updateDisplayOptions } from 'n8n-workflow';
+import { type INodeProperties, INodePropertyOptions, updateDisplayOptions } from 'n8n-workflow';
 import { pageQueryParameters } from '../shared/QueryParameter';
+
+export const getAllDeviceOption: INodePropertyOptions = {
+	name: 'Get Many',
+	description: 'Get a list of many devices',
+	value: 'getAll',
+	routing: {
+		request: {
+			method: 'GET',
+			url: '/v2/devices',
+		},
+	},
+	action: 'Get many devices',
+};
 
 const properties: INodeProperties[] = [
 	...pageQueryParameters,
@@ -35,4 +48,4 @@ const displayOptions = {
 	},
 };
 
-export const description = updateDisplayOptions(displayOptions, properties);
+export const getAllDeviceDescription = updateDisplayOptions(displayOptions, properties);

@@ -1,6 +1,6 @@
 import type { INodeProperties } from 'n8n-workflow';
-import * as get from './get.operation';
-import * as getAll from './getAll.operation';
+import { getDeviceDescription, getDeviceOption } from './get.operation';
+import { getAllDeviceDescription, getAllDeviceOption } from './getAll.operation';
 
 export const description: INodeProperties[] = [
 	{
@@ -14,33 +14,8 @@ export const description: INodeProperties[] = [
 				resource: ['device'],
 			},
 		},
-		options: [
-			{
-				name: 'Get Many',
-				description: 'Get a list of many devices',
-				value: 'getAll',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '/v2/devices',
-					},
-				},
-				action: 'Get many devices',
-			},
-			{
-				name: 'Get',
-				description: 'Get a single device',
-				value: 'get',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '=/v2/device/{{ $parameter.deviceId }}',
-					},
-				},
-				action: 'Get a device',
-			},
-		],
+		options: [getAllDeviceOption, getDeviceOption],
 	},
-	...getAll.description,
-	...get.description,
+	...getAllDeviceDescription,
+	...getDeviceDescription,
 ];

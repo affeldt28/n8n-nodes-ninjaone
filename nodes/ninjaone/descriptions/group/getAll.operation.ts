@@ -1,4 +1,17 @@
-import { type INodeProperties, updateDisplayOptions } from 'n8n-workflow';
+import { type INodeProperties, INodePropertyOptions, updateDisplayOptions } from 'n8n-workflow';
+
+export const getAllGroupOption: INodePropertyOptions = {
+	name: 'Get Many',
+	description: 'Get a list of many groups',
+	value: 'getAll',
+	routing: {
+		request: {
+			method: 'GET',
+			url: '/v2/groups',
+		},
+	},
+	action: 'Get many groups',
+};
 
 const properties: INodeProperties[] = [];
 
@@ -9,4 +22,4 @@ const displayOptions = {
 	},
 };
 
-export const description = updateDisplayOptions(displayOptions, properties);
+export const getAllGroupDescription = updateDisplayOptions(displayOptions, properties);

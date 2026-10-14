@@ -1,11 +1,11 @@
-import {
-	type DeclarativeRestApiSettings,
-	type IExecutePaginationFunctions,
-	type INodeExecutionData,
-	type INodeProperties,
+import type {
+	DeclarativeRestApiSettings,
+	IExecutePaginationFunctions,
+	INodeExecutionData,
+	INodeProperties,
 } from 'n8n-workflow';
 
-export async function paginateById(
+async function paginateById(
 	this: IExecutePaginationFunctions,
 	requestOptions: DeclarativeRestApiSettings.ResultOptions,
 ): Promise<INodeExecutionData[]> {

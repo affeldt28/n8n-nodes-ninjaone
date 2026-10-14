@@ -1,6 +1,6 @@
 import type { INodeProperties } from 'n8n-workflow';
-import * as getAll from './getAll.operation';
-import * as getDevices from './getDevices.operation';
+import { getAllGroupDescription, getAllGroupOption } from './getAll.operation';
+import { getGroupDevicesDescription, getGroupDevicesOption } from './getDevices.operation';
 
 export const description: INodeProperties[] = [
 	{
@@ -14,40 +14,8 @@ export const description: INodeProperties[] = [
 				resource: ['group'],
 			},
 		},
-		options: [
-			{
-				name: 'Get Many',
-				description: 'Get a list of many groups',
-				value: 'getAll',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '/v2/groups',
-					},
-				},
-				action: 'Get many groups',
-			},
-			{
-				name: 'Get Devices',
-				description: 'Returns list of device identifiers that match group criteria',
-				value: 'getDevices',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '=/v2/group/{{ $parameter.groupId }}/device-ids',
-					},
-					output: {
-						postReceive: [
-							async function (_items, response) {
-								return (response.body as number[]).map((id) => ({ json: { id } }));
-							},
-						],
-					},
-				},
-				action: 'Get devices in group',
-			},
-		],
+		options: [getAllGroupOption, getGroupDevicesOption],
 	},
-	...getAll.description,
-	...getDevices.description,
+	...getAllGroupDescription,
+	...getGroupDevicesDescription,
 ];
